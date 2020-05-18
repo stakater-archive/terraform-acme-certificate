@@ -10,6 +10,6 @@ output "public_certificate_intermediate_pem" {
   value = "${element(concat(acme_certificate.platform_domain.*.issuer_pem, list("")), 0)}"
 }
 
-output "complete_public_certificate_key" {
+output "complete_public_certificate_pem" {
   value = "${join("", concat(acme_certificate.platform_domain.*.certificate_pem, acme_certificate.platform_domain.*.issuer_pem))}"
 }

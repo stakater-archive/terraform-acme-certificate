@@ -18,5 +18,12 @@ You can get your certificate components via
 terraform output public_certificate_pem                         //Public Certificate
 terraform output public_certificate_key                         //Private key of certificate
 terraform output public_certificate_intermediate_pem            //Intermediate certificates
-terraform output complete_public_certificate_key                //Public Certifcate + Intermediate Certificates
+terraform output complete_public_certificate_pem                //Public Certifcate + Intermediate Certificates
 ```
+
+## Secret Generation
+
+Scripts folder has useful scripts that can be used to generate Kubernetes secrets once terraform has generated the certificates.
+
+- `generate-secret.sh` simply puts key, certificate and intermidate cert in separate keys
+- `generate-combined-secret.sh` puts key in a separate key but combines certificate and intermidate key together.
